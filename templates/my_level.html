@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>My Level</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Congratulations, {{ full_name }}!</h2>
+    <h3>Your English Level is: <strong>{{ level }}</strong></h3>
+
+    <ul>
+        {% for en, tr in descriptions %}
+        <li>
+            {{ en }}<br>
+            <small>({{ tr }})</small>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/dashboard">Ana Panele Dön</a>
+    </div>
+</body>
+</html>

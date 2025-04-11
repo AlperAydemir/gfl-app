@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Giriş Yap</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Öğrenci Giriş</h2>
+
+    <form method="POST">
+        <label>Kullanıcı Adı:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Şifre:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <input type="submit" value="Giriş Yap">
+    </form>
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <p>Hesabın yok mu? <a href="/register">Kayıt ol</a></p>
+    </div>
+</body>
+</html>

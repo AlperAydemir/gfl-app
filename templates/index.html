@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFL</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+<!-- Font Awesome (en güncel sürüm – 6.5.2) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-1MYYHgJ2mSC9KADbsch1wl/AvOKG5OJAkZJ5rT+MP5B6HGPf3L3KXnKIDgftW7/So6jQGihmQ5WXGYtrZ/JxNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="announcement">
+        Bu platform, test aşamasındadır.
+    </div>
+
+    
+        <h1 style="text-align: center;">GFLearn | Bilişim Klübü Tarafından Tasarlanmıştır</h1>
+
+        <div class="button-row">
+            <a class="entry-button" href="/register">
+                <i class="fa-solid fa-user-graduate "></i> Kayıt Ol
+            </a>
+            <a class="entry-button" href="/login">
+                <i class="fa-solid fa-key "></i> Giriş Yap 
+            </a>
+            <a class="entry-button" href="/admin/login">
+                <i class="fa-solid fa-screwdriver-wrench "></i> Yetkili Girişi
+            </a>
+        </div>
+        
+        <div class="container">
+            <h1>AMACIMIZ</h1>
+            <P> Bu sistem, Gazipaşa Fen Lisesi öğretmen ve öğrencileri tarafından, tamamen yerli imkânlarla geliştirildi.
+                Amacımız, dil öğrenimini herkes için kolay, keyifli ve ücretsiz hale getirmek.
+                
+                Millî değerlerimizi koruyarak, çağın teknolojisini eğitimle birleştirdik.
+                Tüketen değil, üreten bir gençliğin sesi olmak için bu adımı attık.
+            
+                </P></div><div class="announcement">
+                <div class="testimonial-box">
+                    <div class="testimonial active">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, deserunt. <br>– Lorem ipsum dolor sit amet.</div>
+                    <div class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>– Lorem, ipsum dolor.</div>
+                    <div class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>– Lorem, ipsum dolor.</div>
+                    <div class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>– Lorem, ipsum dolor.</div>
+                    <div class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>– Lorem, ipsum dolor.</div>
+                    <div class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>– Lorem, ipsum dolor.</div>
+                    <div class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>– Lorem, ipsum dolor.</div>
+                  </div></div>
+                  
+    
+                  <script>
+                    let current = 0;
+                    const testimonials = document.querySelectorAll(".testimonial");
+                  
+                    setInterval(() => {
+                      // Eski yorumu exit class'ı ile sola kaydır
+                      testimonials[current].classList.remove("active");
+                      testimonials[current].classList.add("exit");
+                  
+                      // 0.5 saniye bekle (çıkış efekti süresi)
+                      setTimeout(() => {
+                        testimonials[current].classList.remove("exit");
+                  
+                        // Yeni yoruma geç
+                        current = (current + 1) % testimonials.length;
+                        testimonials[current].classList.add("active");
+                      }, 500); // çıkış süresi = 0.5s
+                    }, 4500);
+                  </script>     
+</body>
+</html>

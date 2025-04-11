@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materyaller</title>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+<div class="container">
+    <h2>📘 Sana Önerilen Konular</h2>
+    {% if suggested %}
+        <ul>
+        {% for pdf in suggested %}
+            <li>
+                <strong>{{ pdf[1] }}</strong> – CEFR: {{ pdf[2] }}
+                <a href="{{ url_for('static', filename='pdfs/' + pdf[3]) }}" target="_blank">📥 İndir</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Şu an için önerilen konu bulunamadı.</p>
+    {% endif %}
+
+    <hr>
+    <h2>📚 Tüm Konular</h2>
+
+    
+
+    <ul>
+    {% for pdf in all_pdfs %}
+        <li>
+            <strong>{{ pdf[1] }}</strong> – CEFR: {{ pdf[2] }}
+            <a href="{{ url_for('static', filename='pdfs/' + pdf[3]) }}" target="_blank">📥 İndir</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

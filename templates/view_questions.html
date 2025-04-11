@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Soru Listesi</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Soru Listesi</h2>
+
+    <form method="GET" action="/admin/questions">
+        <label>CEFR Seviyesi:</label>
+        <select name="level" onchange="this.form.submit()">
+            <option value="">Tümü</option>
+            <option value="A1" {% if filter_level == 'A1' %}selected{% endif %}>A1</option>
+            <option value="A2" {% if filter_level == 'A2' %}selected{% endif %}>A2</option>
+            <option value="B1" {% if filter_level == 'B1' %}selected{% endif %}>B1</option>
+            <option value="B2" {% if filter_level == 'B2' %}selected{% endif %}>B2</option>
+            <option value="C1" {% if filter_level == 'C1' %}selected{% endif %}>C1</option>
+        </select>
+    </form>
+
+    <br>
+
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>Soru</th>
+            <th>Şıklar</th>
+            <th>Doğru Cevap</th>
+            <th>CEFR</th>
+            <th>Gramer Başlığı</th>
+            <th>İşlem</th>
+        </tr>
+
+        {% for q in questions %}
+        <tr>
+            <td>{{ q[1] }}</td>
+            <td>
+                A) {{ q[2] }}<br>
+                B) {{ q[3] }}<br>
+                C) {{ q[4] }}<br>
+                D) {{ q[5] }}
+            </td>
+            <td>{{ q[6] }}</td>
+            <td>{{ q[8] }}</td>
+            <td>{{ q[7] if q[7] else '-' }}</td>
+            <td>
+                <form method="POST" action="/admin/delete-question" onsubmit="return confirm('Bu soruyu silmek istediğinizden emin misiniz?');">
+                    <input type="hidden" name="question_id" value="{{ q[0] }}">
+                    <input type="hidden" name="page" value="{{ page }}">
+                    <input type="hidden" name="level" value="{{ filter_level }}">
+                    <input type="submit" value="Sil">
+                </form>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="margin-top: 20px;">
+        {% if page > 1 %}
+        <a href="{{ url_for('view_questions', page=page-1, level=filter_level) }}">← Önceki</a>
+        {% endif %}
+
+        <span> Sayfa {{ page }} / {{ total_pages }} </span>
+
+        {% if page < total_pages %}
+        <a href="{{ url_for('view_questions', page=page+1, level=filter_level) }}">Sonraki →</a>
+        {% endif %}
+    </div>
+
+    <br><br>
+    <a href="/admin/dashboard">← Admin Paneline Dön</a>
+    </div>
+</body>
+</html>

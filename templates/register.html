@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Kayıt Ol</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Öğrenci Kayıt</h2>
+
+    <form method="POST">
+        <label>Ad Soyad:</label><br>
+        <input type="text" name="full_name" required><br><br>
+
+        <label>Kullanıcı Adı:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Şifre:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <input type="submit" value="Kayıt Ol">
+    </form>
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <p>Zaten bir hesabın var mı? <a href="/login">Giriş yap</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+<div class="container">
+    <h2>📚 Eğitim Materyalleri (PDF Listesi)</h2>
+
+    {% if materials %}
+    <table style="width:100%; border-collapse: collapse;">
+        <tr>
+            <th>ID</th>
+            <th>Konu</th>
+            <th>Seviye</th>
+            <th>Dosya</th>
+            <th>İşlem</th>
+        </tr>
+        {% for m in materials %}
+        <tr>
+            <td>{{ m[0] }}</td>
+            <td>{{ m[1] }}</td>
+            <td>{{ m[2] }}</td>
+            <td>{{ m[3] }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('delete_pdf', id=m[0]) }}">
+                    <button type="submit" style="background-color: red; color: white; border: none; padding: 6px 10px; border-radius: 6px;">
+                        🗑️ Sil
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>Henüz PDF materyali yüklenmemiş.</p>
+    {% endif %}
+</div>
+</body>
+</html>

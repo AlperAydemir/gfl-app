@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Admin Girişi</title>
+</head>
+<body>
+    <div class="container">
+    
+    <div class="container">
+        <h2>🔐 Admin Giriş</h2>
+        {% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
+        <form method="POST">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required><br><br>
+            <input type="password" name="password" placeholder="Şifre" required><br><br>
+    
+            <img src="{{ url_for('static', filename='captcha.png') }}" alt="CAPTCHA"><br><br>
+            <input type="text" name="captcha" placeholder="Güvenlik kodunu yazın" required><br><br>
+    
+            <input type="submit" value="Giriş Yap">
+        </form>
+    </div>
+    
+
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    </div>
+</body>
+</html>

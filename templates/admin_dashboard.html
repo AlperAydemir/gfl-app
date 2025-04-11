@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Admin Paneli</title>
+</head>
+<body><div class="container">
+    <h2>Admin Paneli</h2>
+    <p>Hoş geldin, {{ session['admin'] }}</p>
+
+    <h3>Yeni Admin Ekle</h3>
+    <form method="POST">
+        <label>İsim Soyisim:</label>
+        <input type="text" name="new_username" required><br>
+        <label>Şifre:</label>
+        <input type="password" name="new_password" required><br>
+        <input type="submit" value="Ekle">
+    </form>
+
+    <h3>Mevcut Adminler</h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>İsim Soyisim</th>
+            <th>Yetki</th>
+        </tr>
+        {% for admin in admins %}
+        <tr>
+            <td>{{ admin[1] }}</td>
+            <td>
+                {% if admin[1] != session['admin'] %}
+                <form method="POST" action="/admin/remove" style="display:inline;">
+                    <input type="hidden" name="username" value="{{ admin[1] }}">
+                    <input type="submit" value="Yetkisini Al">
+                </form>
+                {% else %}
+                <em>(Kendiniz)</em>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form method="POST" action="/admin/logout" style="margin-top: 20px;">
+        <button type="submit">Çıkış Yap</button>
+    </form>
+    <a href="/admin/add-question">Soru Ekle</a><br>
+    <a href="/admin/questions">Soru Listesini Gör</a><br>
+    <a href="/admin/upload-pdf">PDF ekle</a><br>
+    <a href="/admin/materials">PDF dosyaları incele</a><br>
+    {% if message %}
+    <p style="color: green;">{{ message }}</p>
+    {% endif %}</div>
+</body>
+</html>

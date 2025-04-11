@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <div class="container">
+    <title>Öğrenci Paneli</title>
+</head>
+<body>
+    <h2>Hoş Geldiniz, {{ full_name }}</h2>
+
+    <p><strong>Seviyeniz:</strong> {{ level }}</p>
+
+    <p>Bu seviyeye uygun içeriklere ve testlere erişebilirsiniz.</p>
+
+    <ul>
+        <li><a href="/lessons">Konu Anlatımları</a></li>
+        <li><a href="/practice">Test Çöz</a></li>
+    </ul>
+    
+    
+    <a href="/logout">Çıkış Yap</a><br><br><br><br><br><br>
+   <form method="POST" action="/retest" onsubmit="return confirm('Seviyeniz sıfırlanacak ve yeniden test başlayacak. Emin misiniz?');">
+        <button type="submit" >
+            🔄 Yeniden Seviye Ölç
+        </button>
+    </form>
+</div>
+</body>
+</html>

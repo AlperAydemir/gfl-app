@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Placement Test</title>
+</head>
+<body>
+   <div class="container">
+    <h2>Topic: {{ topic }}</h2>
+
+    <p><strong>Question {{ current_number }}/15:</strong></p>
+    <p>{{ question_text }}</p>
+
+    <form method="POST">
+        {% for key, value in options.items() %}
+            <input type="radio" name="answer" value="{{ key }}" required> {{ key }}) {{ value }}<br>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Cevapla">
+    </form>
+    </div>
+</body>
+</html>

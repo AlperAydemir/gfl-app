@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF YÜkle</title>
+    <link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+<div class="container">
+    <h2>📄 PDF Konu Anlatımı Yükleme Arayüzü</h2>
+
+    {% if message %}
+    <p style="color: lightgreen;">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Konu Başlığı:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>CEFR Seviyesi:</label><br>
+        <select name="cefr_level" required>
+            <option>A1</option>
+            <option>A2</option>
+            <option>B1</option>
+            <option>B2</option>
+            <option>C1</option>
+        </select><br><br>
+
+        <label>PDF Dosyası:</label><br>
+        <input type="file" name="file" accept=".pdf" required><br><br>
+
+        <input type="submit" value="Yükle">
+    </form>
+</div>
+</body>
+</html>

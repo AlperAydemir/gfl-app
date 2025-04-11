@@ -1,0 +1,201 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #14141d ;
+    color: #eeeeee;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3 {
+    color: #4c3cb8;
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #121212 ;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+form input[type="text"],
+form input[type="password"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #121212;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+form input[type="submit"], button {
+    background-color: #3fbb8f;
+    color: #121212 ;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+form input[type="submit"]:hover, button:hover {
+    background-color: #2fa179;
+}
+
+a {
+    color: #3fbb8f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.radio-option {
+    padding: 10px 15px;
+    border: 1px solid #121212;
+    border-radius: 10px;
+    margin: 8px 0;
+    transition: all 0.2s;
+}
+
+.radio-option:hover {
+    background-color: #121212 ;
+    border-color: #888;
+}
+
+.announcement {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3fbb8f;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeInSlide 2s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.button-row {
+    display: flex;
+    justify-content: center; /* BUTONLARI ORTALADI */
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+
+
+.entry-button:hover {
+    background-color: #2fa1798a;
+    box-shadow: 0 0 15px rgba(63, 187, 143, 0.5);
+    text-decoration: none;
+}
+
+
+.entry-button {
+    position: relative;
+    display: inline-block;
+    background-color: #3fbb8f;
+    color: #121212;
+    padding: 15px;
+    border-radius: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(63, 187, 143, 0.3);
+    text-align: center;
+    overflow: hidden;
+}
+
+.entry-button::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #121212; /* çizgi rengi */
+    transition: width 0.4s ease;
+    text-decoration: none;
+}
+
+.entry-button:hover::after {
+    width: 100%;
+    text-decoration: none;
+}
+.entry-button {
+    text-decoration: none;      /* altı çizili link etkisini kaldırır */
+    border-bottom: none;        /* bazı tarayıcılar için */
+}
+
+.entry-button .icon {
+    margin-right: 8px;
+    transition: 0.3s ease;
+    font-size: 18px;
+}
+
+/* Hover'da fa-solid haline geçsin */
+.entry-button:hover .icon {
+    font-weight: 900; /* font-awesome solid için */
+}
+
+/*  YORUM */
+.testimonial-box {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #121212;
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(63, 187, 143, 0.1);
+    color: #eeeeee;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    min-height: 120px;
+    overflow: hidden;
+}
+
+.testimonial {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+}
+
+.testimonial.active {
+    left: 0;
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+}
+
+.testimonial.exit {
+    left: -100%;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
